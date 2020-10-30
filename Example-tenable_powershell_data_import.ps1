@@ -18,7 +18,7 @@ Invoke-RestMethod -Uri "https://tenable.companyname.com/rest/analysis" `
 
 
 
-$vulnCount = Select-String -Path outfile1.txt -AllMatches -Pattern '(totalRecords=([0-9]+))' | %{ $_.Matches[0].Groups[2].Value }
+$vulnCount = Select-String -Path outfile.txt -AllMatches -Pattern '(totalRecords=([0-9]+))' | %{ $_.Matches[0].Groups[2].Value }
 $vulnDate = get-date -Format 'MM/dd/yyyy'
 $vulnTimeline = "C:\temp\VulnTimeLine.csv"
 $data = "$vulnDate,$vulnCount"
